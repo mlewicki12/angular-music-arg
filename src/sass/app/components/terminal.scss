@@ -1,0 +1,25 @@
+
+@import '../../abstract/variables';
+
+.terminal {
+  background-color: $terminal-color;
+  border: $terminal-border;
+
+  margin: $terminal-margin;
+  padding: $terminal-padding;
+
+  min-height: $terminal-height;
+
+  font-family: $terminal-font;
+  font-size: $terminal-font-size;
+  color: $terminal-font-color;
+
+  display: $terminal-display;
+  flex-flow: $terminal-flow;
+  justify-content:  $terminal-justify;
+}
+
+.options * {
+  padding: 0.5rem;
+  margin: 0;
+}

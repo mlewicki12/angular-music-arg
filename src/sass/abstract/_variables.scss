@@ -1,0 +1,18 @@
+
+$app-main: black;
+$app-secondary: white;
+
+$terminal-color: $app-main;
+$terminal-border: 1px solid $app-secondary;
+
+$terminal-margin: 1rem;
+$terminal-padding: 0.5rem;
+$terminal-height: 50vh;
+
+$terminal-font: 'Basic Manual', sans-serif;
+$terminal-font-size: large;
+$terminal-font-color: $app-secondary;
+
+$terminal-display: flex;
+$terminal-flow: column nowrap;
+$terminal-justify: space-between;

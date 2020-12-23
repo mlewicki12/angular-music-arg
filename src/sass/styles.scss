@@ -1,0 +1,15 @@
+
+@import './abstract/mixins';
+@import './abstract/variables';
+
+@font-face {
+  font-family: 'Basic Manual';
+  src: url('../assets/fonts/BasicManual.ttf');
+}
+
+body {
+  background-color: $terminal-color;
+
+  margin: 0;
+  padding: 0;
+}

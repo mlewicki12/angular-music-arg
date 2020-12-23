@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Step } from 'src/app/types/step';
 
 @Component({
@@ -7,6 +7,23 @@ import { Step } from 'src/app/types/step';
   styleUrls: ['./terminal.component.scss']
 })
 export class TerminalComponent implements OnInit {
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    switch(event.key) {
+      case 'ArrowUp':
+        this.stepActive(-1);
+        break;
+
+      case 'ArrowDown':
+        this.stepActive(1);
+        break;
+
+      case 'Enter':
+        this.confirm();
+        break;
+    }
+  }
+
   step: Step = {
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
                   "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure " +
@@ -33,11 +50,20 @@ export class TerminalComponent implements OnInit {
     ]
   };
 
-  active = "second";
+  active = 1;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  stepActive(diff: number) {
+    this.active =  Math.max(
+      Math.min(this.active + diff, this.step.options.length - 1),
+      0);
+  }
+
+  confirm() {
+    console.log(this.step.options[this.active].text);
+  }
 }

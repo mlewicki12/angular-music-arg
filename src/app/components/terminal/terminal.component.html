@@ -6,7 +6,7 @@
 
   <div class="options">
     <p *ngFor="let option of step.options" class="option">
-      {{option.id === active ? '>' : ''}} {{option.text}}
+      {{option.id === step.options[active].id ? '>' : ''}} {{option.text}}
     </p>
   </div>
 </div>

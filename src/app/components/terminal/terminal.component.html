@@ -1,12 +1,4 @@
 
 <div class="terminal">
-  <div class="text">
-    {{step.description}}
-  </div>
-
-  <div class="options">
-    <p *ngFor="let option of step.options" class="option">
-      {{option.id === step.options[active].id ? '>' : ''}} {{option.text}}
-    </p>
-  </div>
+  <app-login></app-login>
 </div>

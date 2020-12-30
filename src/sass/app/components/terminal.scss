@@ -1,22 +1,23 @@
 
-@import '../../abstract/variables';
+@import '~src/sass/abstract/variables';
+@import '~src/sass/abstract/mixins';
 
 .terminal {
-  background-color: $terminal-color;
-  border: $terminal-border;
+  background-color: $app-main;
+  border: 1px solid $app-secondary;
 
-  margin: $terminal-margin;
-  padding: $terminal-padding;
+  margin: 1rem;
+  padding: 0.5rem;
 
-  min-height: $terminal-height;
+  min-height: 50vh;
 
-  font-family: $terminal-font;
-  font-size: $terminal-font-size;
-  color: $terminal-font-color;
+  font-family: $app-font;
+  font-size: large;
+  color: $app-secondary;
 
-  display: $terminal-display;
-  flex-flow: $terminal-flow;
-  justify-content:  $terminal-justify;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
 }
 
 .options * {

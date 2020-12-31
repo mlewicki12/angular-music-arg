@@ -6,12 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { LoginComponent } from './components/login/login.component';
+import { AutoFocusDirective } from './directives/autofocus';
 
 @NgModule({
   declarations: [
     AppComponent,
     TerminalComponent,
-    LoginComponent
+    LoginComponent,
+
+    AutoFocusDirective
   ],
   imports: [
     BrowserModule,

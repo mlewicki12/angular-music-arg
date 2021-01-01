@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { LoginComponent } from './components/login/login.component';
 import { AutoFocusDirective } from './directives/autofocus';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AutoFocusDirective } from './directives/autofocus';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

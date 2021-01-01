@@ -58,8 +58,17 @@ export class LoginComponent implements OnInit {
 
       if(this.displayText === text) {
         clearInterval(this.interval);
-        this.displayHackText = true;
-        this.displayPromptText = true;
+        let times = 5;
+        this.interval = setInterval(() => {
+          times--;
+          this.displayHackText = this.displayPromptText = !this.displayPromptText;
+
+          if(times <= 0) {
+            clearInterval(this.interval);
+            this.displayHackText = true;
+            this.displayPromptText = true;
+          }
+        }, time + 50);
       }
     }, time);
   }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { LoginComponent } from './components/login/login.component';
 import { TransitionComponent } from './components/transition/transition.component';
+import { BackdoorComponent } from './components/backdoor/backdoor.component';
 
 import { AutoFocusDirective } from './directives/autofocus';
 
@@ -17,6 +18,7 @@ import { AutoFocusDirective } from './directives/autofocus';
     TerminalComponent,
     LoginComponent,
     TransitionComponent,
+    BackdoorComponent,
 
     AutoFocusDirective,
   ],

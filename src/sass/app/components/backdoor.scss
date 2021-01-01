@@ -1,0 +1,37 @@
+
+@import '~src/sass/abstract/_variables.scss';
+@import '~src/sass/abstract/_mixins.scss';
+
+.backdoor {
+  color: $app-hacker;
+}
+
+.prompt {
+  @include flex-row;
+  justify-content: space-between;
+}
+
+input {
+  background-color: $app-main;
+  color: $app-hacker;
+
+  border: unset;
+  border-bottom: 1px solid $app-hacker;
+
+  width: 3.5rem;
+
+  font-size: large;
+  font-family: 'Basic Manual', sans-serif;
+}
+
+.success {
+  color: $app-hacker;
+}
+
+.hide {
+  color: $app-main;
+}
+
+.error {
+  color: $app-error;
+}

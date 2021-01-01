@@ -47,7 +47,7 @@ export class TransitionComponent implements OnInit {
       this.displayText += this.transitionText.substring(this.displayText.length, this.displayText.length + 10);
       if(this.displayText === this.transitionText) {
         clearInterval(this.interval);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/backdoor']);
       }
     }, time);
   }

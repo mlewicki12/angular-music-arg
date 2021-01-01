@@ -38,12 +38,11 @@ export class LoginComponent implements OnInit {
   }
 
   hackEffect(): void {
-    this.displayText = "_____________";
-    setTimeout(this.lerpText, 500);
+    setTimeout(this.lerpText, 400);
   }
 
   lerpText(): void {
-    const time = 100;
+    const time = 75;
     const text = this.displayHack;
     
     this.displayText = '_'.repeat(this.displayHack.length);

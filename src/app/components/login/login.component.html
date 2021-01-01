@@ -1,12 +1,26 @@
 
 <div class="login">
-  <label class="input">
-    <p>Login:</p>
-    <input type="text" [(ngModel)]="login" maAutofocus />
-  </label>
+  <div>
+    <p class="hide">PLACEHOLDER</p>
+  </div>
 
-  <label class="input">
-    <p>Password:</p>
-    <input type="password" [(ngModel)]="password" />
-  </label>
+  <div class="form">
+    <label class="input">
+      <p>Login:</p>
+      <input type="text" [(ngModel)]="login" maAutofocus />
+    </label>
+
+    <label class="input">
+      <p>Password:</p>
+      <input type="password" [(ngModel)]="password" />
+    </label>
+
+    <p class="{{(attemptMade && !loggedIn) ? 'error' : 'hide'}}">Incorrect username or password</p>
+  </div>
+
+  <div class="error-info">
+    <div class="hack">
+      <a class="{{displayHackText ? 'error' : 'hide'}}" href="#">{{displayText}}</a>
+    </div>
+  </div>
 </div>

@@ -4,15 +4,24 @@
 
 .login {
   @include flex-column;
-
-  width: 100%;
-  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .input {
   @include flex-row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+}
+
+.form {
+  @include flex-column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.input > p {
+  margin: 0;
 }
 
 input {
@@ -25,10 +34,36 @@ input {
   margin-left: 0.5rem;
 }
 
-input:focus {
-  border: unset;
+.hide {
+  color: $app-main;
 }
 
-.input > p {
-  margin: 0;
+.error-info {
+  margin-top: 1rem;
+
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+
+  align-self: flex-end;
+}
+
+.error-info > p, .hack > p {
+  margin: unset;
+}
+
+.error {
+  color: $app-error;
+}
+
+.hack {
+  margin: 2.5rem;
+
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
+.underline {
+  text-decoration: underline;
 }

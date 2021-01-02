@@ -24,21 +24,17 @@ export class LoginComponent implements OnInit {
               private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.lerpText = this.lerpText.bind(this);
-
     this.bindingService.registerEvent('Enter', () => {
       this.login = this.password = "";
       this.attemptMade = true;
       this.loggedIn = this.loginService.verify(this.login, this.password);
 
       if(!this.loggedIn) {
-        this.hackEffect();
+        setTimeout(() => {
+          this.lerpText();
+        }, 400);
       }
     });
-  }
-
-  hackEffect(): void {
-    setTimeout(this.lerpText, 400);
   }
 
   lerpText(): void {
@@ -47,18 +43,10 @@ export class LoginComponent implements OnInit {
     
     this.displayText = '_'.repeat(this.displayHack.length);
     let curChar = 0;
+    let times = 5;
+
     this.interval = setInterval(() => {
-      while(this.displayText.charAt(curChar) !== '_') {
-        curChar = Math.floor(Math.random() * this.displayHack.length);
-      }
-
-      this.displayText = this.displayText.substring(0, curChar) + text.charAt(curChar) + this.displayText.substring(curChar + 1);
-      this.displayHackText = !this.displayHackText;
-
-      if(this.displayText === text) {
-        clearInterval(this.interval);
-        let times = 5;
-        this.interval = setInterval(() => {
+        if(this.displayText === text) {
           times--;
           this.displayHackText = this.displayPromptText = !this.displayPromptText;
 
@@ -67,8 +55,14 @@ export class LoginComponent implements OnInit {
             this.displayHackText = true;
             this.displayPromptText = true;
           }
-        }, time + 50);
-      }
-    }, time);
+        } else {
+          while(this.displayText.charAt(curChar) !== '_') {
+            curChar = Math.floor(Math.random() * this.displayHack.length);
+          }
+
+          this.displayText = this.displayText.substring(0, curChar) + text.charAt(curChar) + this.displayText.substring(curChar + 1);
+          this.displayHackText = !this.displayHackText;
+        }
+      }, time);
   }
 }

@@ -15,6 +15,8 @@ export class BackdoorComponent implements OnInit {
   displayClass: string = 'hide';
 
   interval: any;
+  loading: boolean = false;
+  disabled: boolean = false;
 
   constructor(private binding: BindingService,
               private router: Router) { }
@@ -22,12 +24,16 @@ export class BackdoorComponent implements OnInit {
   ngOnInit(): void {
     this.binding.registerEvent('Enter', () => {
       if(this.answer.trim() === '448') {
-        this.loadingText('Backdoor protocol initialising', 3000, '/hack');
         this.displayClass = 'success';
+        this.disabled = true;
+
+        this.loadingText('Backdoor protocol initialising', 3000, '/hack');
       } else {
         this.attempts += 1;
 
         if(this.attempts >= 3) {
+          this.disabled = true;
+
           this.loadingText('Attempt to breach detected, purging', 3000, '/login');
         } else {
           this.displayText = `${this.attempts} / 3`;
@@ -44,7 +50,10 @@ export class BackdoorComponent implements OnInit {
     
     let cur = 0;
     let total = runtime / time;
+
     this.displayText = text;
+    this.loading = true;
+
     this.interval = setInterval(() => {
       this.displayText = text + append[cur];
       cur = (cur + 1) % append.length;

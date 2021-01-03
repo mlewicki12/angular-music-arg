@@ -6,9 +6,9 @@
   color: $app-hacker;
 }
 
-.prompt {
+.end {
   @include flex-row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 input {

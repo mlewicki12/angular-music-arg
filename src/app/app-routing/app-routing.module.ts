@@ -7,7 +7,7 @@ import { TransitionComponent } from '../components/transition/transition.compone
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'hack', component: TransitionComponent},
-  {path: 'backdoor', component: BackdoorComponent},
+  {path: 'backdoor/:id', component: BackdoorComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 

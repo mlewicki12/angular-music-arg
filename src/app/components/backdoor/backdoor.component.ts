@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BindingService } from 'src/app/services/binding.service';
+import { ChallengesService } from 'src/app/services/challenges.service';
 
 @Component({
   selector: 'app-backdoor',
@@ -8,44 +9,13 @@ import { BindingService } from 'src/app/services/binding.service';
   styleUrls: ['./backdoor.component.scss']
 })
 export class BackdoorComponent implements OnInit {
-  challenges = [
-    {
-      text: 'To initiate backdoor protocol, complete the following number sequence:',
-      success: 'Backdoor protocol initialising',
-      sequence: [7, 28, 112, 448, 1792],
-      answerIndex: 3,
-      answer: '448'
-    },
-    {
-      text: 'Complete the sequence to install packet sniffer:',
-      success: 'Packet sniffer installing',
-      sequence: [3369, 3693, 6933, 9336],
-      answerIndex: 2,
-      answer: '6933'
-    },
-    {
-      text: 'Enter missing pin to install rootkit:',
-      success: 'Rootkit installing',
-      sequence: [144, 233, 377, 610, 987, 1597],
-      answerIndex: 2,
-      answer: '377'
-    },
-    {
-      text: 'Complete password to gain admin privileges:',
-      success: 'Enabling admin privileges',
-      sequence: ['Tokyo', 'Delhi', 'Shanghai', 'São Paulo', 'Mexico City'],
-      answerIndex: 0,
-      answer: 'Tokyo'
-    }
-  ];
-
   answer: string = '*****';
   attempts: number = 0;
 
   challenge: any;
   challengeIndex: number = 0;
-  challengeTextPreInput: string;
-  challengeTextPostInput: string;
+  challengeTextPreInput: string = "";
+  challengeTextPostInput: string = "";
 
   displayText: string = '0 / 3';
   displayClass: string = 'hide';
@@ -55,10 +25,27 @@ export class BackdoorComponent implements OnInit {
   disabled: boolean = false;
 
   constructor(private binding: BindingService,
-              private router: Router) { 
-    this.challenge = this.challenges[this.challengeIndex];
-    this.challengeTextPreInput = this.challenge.sequence.splice(0, this.challenge.answerIndex).join(', ');
-    this.challengeTextPostInput = this.challenge.sequence.splice(1).join(', ');
+              private router: Router,
+              private challenges: ChallengesService,
+              private route: ActivatedRoute) { 
+    this.challengeIndex = +(this.route.snapshot.paramMap.get('id') || 0);
+    this.loadChallenge(this.challengeIndex);
+  }
+
+  loadChallenge(index: number) {
+    this.challenge = this.challenges.getChallenge(index);
+
+    let response = this.challenge.sequence.slice();
+    this.challengeTextPreInput = response.splice(0, this.challenge.answerIndex).join(', ');
+    this.challengeTextPostInput = response.splice(1).join(', ');
+
+    // reset values pog
+    this.answer = '*****';
+    this.attempts = 0;
+    this.displayText = '0 / 3';
+    this.displayClass = 'hide';
+    this.loading = false;
+    this.disabled = false;
   }
 
   ngOnInit(): void {
@@ -67,7 +54,7 @@ export class BackdoorComponent implements OnInit {
         this.displayClass = 'success';
         this.disabled = true;
 
-        this.loadingText(this.challenge.success, 3000, '/hack');
+        this.loadingText(this.challenge.success, 3000, this.challenge.redirect);
       } else {
         this.attempts += 1;
 
@@ -75,7 +62,7 @@ export class BackdoorComponent implements OnInit {
           this.disabled = true;
           this.attempts = 0;
 
-          this.loadingText('Attempt to breach detected, purging', 3000, '/login');
+          this.loadingText('Attempt to breach detected, purging', 3000, ['/login']);
         } else {
           this.displayText = `${this.attempts} / 3`;
           this.displayClass = 'error';
@@ -85,7 +72,7 @@ export class BackdoorComponent implements OnInit {
     });
   }
 
-  loadingText(text: string, runtime: number, callback: string) {
+  loadingText(text: string, runtime: number, callback: string[] | number) {
     const time = 250;
     const append = ['.', '..', '...'];
     
@@ -103,7 +90,12 @@ export class BackdoorComponent implements OnInit {
       if(total <= 0) {
         clearInterval(this.interval);
         this.displayText = text;
-        this.router.navigate([callback]);
+
+        if(typeof callback === 'number') {
+          this.loadChallenge(callback);
+        } else {
+          this.router.navigate(callback);
+        }
       }
     }, time);
   }

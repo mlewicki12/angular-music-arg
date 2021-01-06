@@ -1,6 +1,6 @@
 
 <div class="backdoor">
-  <p>To initiate backdoor protocol, complete the following number sequence:</p>
+  <p>{{this.challenge.text}}</p>
   <p>{{this.challengeTextPreInput}}{{this.challengeTextPreInput.length > 0 ? ', ' : ''}}<input type="text" [(ngModel)]="answer" [attr.disabled]="disabled ? '' : null"/>, {{this.challengeTextPostInput}}</p>
   <p class="end {{displayClass}}">{{displayText}}</p>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BindingService } from 'src/app/services/binding.service';
 import { ChallengesService } from 'src/app/services/challenges.service';
+import { TimerService } from 'src/app/services/timer.service';
 
 @Component({
   selector: 'app-backdoor',
@@ -19,12 +20,14 @@ export class BackdoorComponent implements OnInit {
 
   displayText: string = '0 / 3';
   displayClass: string = 'hide';
+  failText: string = 'Attempt to breach detected, purging';
 
   interval: any;
   loading: boolean = false;
   disabled: boolean = false;
 
   constructor(private binding: BindingService,
+              private timer: TimerService,
               private router: Router,
               private challenges: ChallengesService,
               private route: ActivatedRoute) { 
@@ -54,7 +57,15 @@ export class BackdoorComponent implements OnInit {
         this.displayClass = 'success';
         this.disabled = true;
 
-        this.loadingText(this.challenge.success, 3000, this.challenge.redirect);
+        this.displayText = this.challenge.success;
+        this.loading = true;
+        this.timer.loadingText(this.challenge.success, 3000, (text: string, last: boolean) => {
+          if(last) {
+            this.redirect();
+          }
+
+          this.displayText = text;
+        })
       } else {
         this.attempts += 1;
 
@@ -62,7 +73,15 @@ export class BackdoorComponent implements OnInit {
           this.disabled = true;
           this.attempts = 0;
 
-          this.loadingText('Attempt to breach detected, purging', 3000, ['/login']);
+          this.displayText = this.failText;
+          this.loading = true;
+          this.timer.loadingText(this.failText, 3000, (text: string, last: boolean) => {
+            if(last) {
+              this.redirect();
+            }
+
+            this.displayText = text;
+          });
         } else {
           this.displayText = `${this.attempts} / 3`;
           this.displayClass = 'error';
@@ -72,31 +91,12 @@ export class BackdoorComponent implements OnInit {
     });
   }
 
-  loadingText(text: string, runtime: number, callback: string[] | number) {
-    const time = 250;
-    const append = ['.', '..', '...'];
-    
-    let cur = 0;
-    let total = runtime / time;
-
-    this.displayText = text;
-    this.loading = true;
-
-    this.interval = setInterval(() => {
-      this.displayText = text + append[cur];
-      cur = (cur + 1) % append.length;
-      total--;
-
-      if(total <= 0) {
-        clearInterval(this.interval);
-        this.displayText = text;
-
-        if(typeof callback === 'number') {
-          this.loadChallenge(callback);
-        } else {
-          this.router.navigate(callback);
-        }
-      }
-    }, time);
+  // TODO: make challenge type
+  redirect() {
+    if(typeof this.challenge.redirect === 'number') {
+      this.loadChallenge(this.challenge.redirect);
+    } else {
+      this.router.navigate(this.challenge.redirect);
+    }
   }
 }

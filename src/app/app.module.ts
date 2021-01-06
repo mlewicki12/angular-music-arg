@@ -11,6 +11,7 @@ import { TransitionComponent } from './components/transition/transition.componen
 import { BackdoorComponent } from './components/backdoor/backdoor.component';
 
 import { AutoFocusDirective } from './directives/autofocus';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { AutoFocusDirective } from './directives/autofocus';
     BackdoorComponent,
 
     AutoFocusDirective,
+
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

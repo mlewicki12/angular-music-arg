@@ -1,0 +1,21 @@
+
+@import '~src/sass/abstract/_variables';
+@import '~src/sass/abstract/_mixins';
+
+p {
+  color: $app-hacker;
+  white-space: pre-wrap;
+}
+
+p, a {
+  text-align: center;
+}
+
+div {
+  @include flex-column;
+  justify-content: center;
+}
+
+.error {
+  color: $app-error;
+}

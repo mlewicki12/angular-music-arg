@@ -35,7 +35,7 @@ export class ChallengesService {
       sequence: ['Tokyo', 'Delhi', 'Shanghai', 'São Paulo', 'Mexico City'],
       answerIndex: 0,
       answer: 'Tokyo',
-      redirect: ['/login']
+      redirect: ['/error']
     }
   ];
 

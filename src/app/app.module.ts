@@ -12,6 +12,7 @@ import { BackdoorComponent } from './components/backdoor/backdoor.component';
 
 import { AutoFocusDirective } from './directives/autofocus';
 import { ErrorComponent } from './components/error/error.component';
+import { LogComponent } from './components/log/log.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { ErrorComponent } from './components/error/error.component';
     AutoFocusDirective,
 
     ErrorComponent,
+
+    LogComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,12 @@ export class ErrorComponent implements OnInit {
                 'Please refer to the error log for more details.';
 
 
-  fileName: string; 
+  fileName: string;
   loading: boolean = true;
 
   constructor(private file: FileService,
               private timer: TimerService) { 
-    this.fileName = file.getLogFileName();
+    this.fileName = this.file.getLogFileName();
   }
 
   ngOnInit(): void {

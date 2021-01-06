@@ -9,7 +9,7 @@ export class TimerService {
 
   loadingText(text: string, runtime: number, callback: Function) {
     const time = 250;
-    const append = ['.', '..', '...'];
+    const append = ['.', '..', '...', ''];
     
     let cur = 0;
     let total = runtime / time;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BindingService } from 'src/app/services/binding.service';
+import { FileService } from 'src/app/services/file.service';
 import { LoginService } from 'src/app/services/login.service';
+import { TimerService } from 'src/app/services/timer.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,10 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean = false;
 
   constructor(private bindingService: BindingService,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private fileService: FileService) {
+                this.fileService.setLogTime(new Date());
+              }
 
   ngOnInit(): void {
     this.bindingService.registerEvent('Enter', () => {

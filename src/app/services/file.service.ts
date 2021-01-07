@@ -24,8 +24,8 @@ export class FileService {
     }
 
     const length = 25; // generate total length
-    const infoPos = Math.floor(Math.random() * 24) + 1; // generate password position
-    const infoString = `login: ${this.userInfo.login}, password: ${this.userInfo.password}`;
+    const infoPos = Math.floor(Math.random() * 23) + 1; // generate password position
+    const infoString = `username: ${this.userInfo.login}, password: ${this.userInfo.password}`;
 
     var ret = '';
     for(let i = 0; i < length; ++i) {
@@ -34,8 +34,10 @@ export class FileService {
         ret += `ERROR: ${infoString}`;
       } else if((i + 1) === infoPos) {
         ret += 'ERROR: data overflow detected, dumping login info';
+      } else if((i + 1) === length) {
+        ret += 'ERROR: i did it on purpose...';
       } else {
-        ret += `${this.generateRandomString()}: random string`;
+        ret += this.generateRandomString();
       }
 
       ret += '\n';
@@ -48,24 +50,42 @@ export class FileService {
   generateRandomString() {
     const chance = Math.random() * 100;
     if(chance < 15) {
-      return 'ERROR';
-    } else if(chance < 45) {
-      return 'WARNING'
-    } else return 'DEBUG';
+      return `ERROR: ${this.errorMessage()}`;
+    } else if(chance < 65) {
+      return `WARNING: ${this.warningMessage()}`;
+    } else return `DEBUG: ${this.debugMessage()}`;
   }
 
-  private debug = [];
+  private debug = ['closed that chapter',
+                   'watching life through phantom eyes',
+                   'things aren\'t better off this time',
+                   'i\'m doing fine',
+                   'i just don\'t wanna talk about it',
+                   'they told me to stay away',
+                   'it gets harder to forget a face',
+                   'you thought it out'];
   debugMessage() {
     return this.debug[Math.floor(Math.random() * this.debug.length)];
   }
 
-  private warning = [];
+  private warning = ['do i have to repeat myself?',
+                     'hammer growing heavy',
+                     'this is me drowning in my sleep',
+                     'nausea is building',
+                     'what\'s that hanging off your back?',
+                     'you did that on purpose',
+                     'now i\'ll never be free',
+                     'i hope they just hide'];
   warningMessage() {
     return this.warning[Math.floor(Math.random() * this.warning.length)];
   }
 
-  private error = ['cache overflow detected, attempting to fix...',
-                   'OutOfRangeException thrown in '];
+  private error = ['sentencing every shiver in my spine to death',
+                   'just trying my best to stay in line',
+                   'curse cast through my body',
+                   'my innocence left me',
+                   'float up till your heart stops',
+                   'painting still life frames with my insides'];
   errorMessage() {
     return this.error[Math.floor(Math.random() * this.error.length)];
   }

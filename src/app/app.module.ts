@@ -9,10 +9,12 @@ import { TerminalComponent } from './components/terminal/terminal.component';
 import { LoginComponent } from './components/login/login.component';
 import { TransitionComponent } from './components/transition/transition.component';
 import { BackdoorComponent } from './components/backdoor/backdoor.component';
-
-import { AutoFocusDirective } from './directives/autofocus';
 import { ErrorComponent } from './components/error/error.component';
 import { LogComponent } from './components/log/log.component';
+import { FileComponent } from './components/file/file.component';
+
+import { AutoFocusDirective } from './directives/autofocus';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,13 @@ import { LogComponent } from './components/log/log.component';
     LoginComponent,
     TransitionComponent,
     BackdoorComponent,
+    ErrorComponent,
+    LogComponent,
+    FileComponent,
 
     AutoFocusDirective,
 
-    ErrorComponent,
-
-    LogComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

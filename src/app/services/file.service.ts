@@ -9,6 +9,7 @@ export class FileService {
   getLogFileName() {
     if(!this.logFileName) {
       this.logFileName = '/log/mikau/access_' + new Date().toLocaleDateString('en-US').replace(/[/]/g, '.') + '.log';
+      // create file here
     }
 
     return this.logFileName;

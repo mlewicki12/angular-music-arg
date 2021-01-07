@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BindingService } from 'src/app/services/binding.service';
 import { FileService } from 'src/app/services/file.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -24,20 +25,23 @@ export class LoginComponent implements OnInit {
 
   constructor(private bindingService: BindingService,
               private loginService: LoginService,
-              private fileService: FileService) {
+              private fileService: FileService,
+              private router: Router) {
                 this.fileService.setLogTime(new Date());
               }
 
   ngOnInit(): void {
     this.bindingService.registerEvent('Enter', () => {
-      this.login = this.password = "";
       this.attemptMade = true;
       this.loggedIn = this.loginService.verify(this.login, this.password);
+      this.login = this.password = "";
 
       if(!this.loggedIn) {
         setTimeout(() => {
           this.lerpText();
         }, 400);
+      } else {
+        this.router.navigate(['/files']);
       }
     });
   }

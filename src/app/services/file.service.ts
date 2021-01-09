@@ -1,14 +1,35 @@
 import { Injectable } from '@angular/core';
+import filePath from '../../assets/system.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
+  private filePath: {[key: string]: any} = filePath;
+  private cursor = "/";
+  getFile(path: string) {
+    this.cursor = path;
+    var pathSplit = path.split('/').reverse();
+    var key: string;
+    var current = this.filePath;
+
+    while(pathSplit.length > 0) {
+      key = pathSplit.pop() || '';
+      if(key === '' || !current[key]) {
+        return {type: 'error', value: `${path} not found`};
+      }
+
+      current = current[key];
+    }
+
+    return current;
+  }
+
   private logFileName?: string;
   private logStartTime?: Date;
   getLogFileName() {
     if(!this.logFileName) {
-      this.logFileName = '/log/mikau/access_' + new Date().toLocaleDateString('en-US').replace(/[/]/g, '.') + '.log';
+      this.logFileName = '/log/access_' + new Date().toLocaleDateString('en-US').replace(/[/]/g, '.') + '.log';
       // create file here
     }
 

@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: 'hack', component: TransitionComponent},
   {path: 'backdoor/:id', component: BackdoorComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'log/mikau/:id', component: LogComponent},
+  {path: 'log/:id', component: LogComponent},
   {matcher: filepathMatcher, component: FileComponent},
   {path: '**', component: PageNotFoundComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},

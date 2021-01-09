@@ -1,0 +1,179 @@
+
+{
+  ".": {
+    "type": "link",
+    "value": "/"
+  },
+  "split": {
+    ".": {
+      "type": "link",
+      "value": "/split"
+    },
+    "..": {
+      "type": "link",
+      "value": "/"
+    },
+    "mikau": {
+      ".": {
+        "type": "link",
+        "value": "/split/mikau"
+      },
+      "..": {
+        "type": "link",
+        "value": "/split"
+      },
+      "mikau.wav": {
+        "type": "drive",
+        "value": "https://drive.google.com/file/d/17ICZKeINkC1sJhIMs5UIEi_ZSwOTJuG_/view?usp=sharing"
+      },
+      "at_the_edge_of_fading_cosciousness.txt": {
+        "type": "text",
+        "value": [
+          "Who's that hanging off your back?",
+          "Who's that singing in the breeze?",
+          "A smile in a shadow",
+          "Always staring back at me",
+          "",
+          "It's all in my head",
+          "Hurtful words you never said",
+          "",
+          "They told me to stay away",
+          "But it's easier inside your arms",
+          "Despite what I say I couldn't",
+          "Bear to live without you",
+          "",
+          "Claustrophobia",
+          "It's Cabin Fever",
+          "And I know you told me",
+          "It's not getting any easier",
+          "",
+          "I swear we're going nowhere",
+          "But that's fine by me",
+          "And do I have to repeat myself?",
+          "There's nowhere I'd rather be"
+        ]
+      },
+      "dos_ex_machina.txt": {
+        "type": "text",
+        "value": [
+          "I lied, things aren't better off this time",
+          "Just keeps getting worse no matter how many times",
+          "I try",
+          "My pride keeps me from admitting I'm not fine",
+          "Hold it deep in my chest and pray today I take my",
+          "last breath",
+          "",
+          "This is me drowning in my sleep",
+          "The more these days stay the same, it gets harder",
+          "to forget a face",
+          "This is me drowning in my sleep",
+          "Drink myself sick on empty promises that I could",
+          "never keep",
+          "This is me drowning in my sleep",
+          "The more these days stay the same it gets harder",
+          "to forget a face",
+          "This is me drowning in my sleep",
+          "Waste the day away, stuck in a haze that I just",
+          "can't seem to breach",
+          "",
+          "Your voice in the back of my head is calling",
+          "My mind shuts off, nausea is building",
+          "Breaking down over photos",
+          "What's the point, I have to know",
+          "I don't want to talk about it - everyone wants to",
+          "talk about it",
+          "I just don't want to talk about it - please let it",
+          "stop",
+          "",
+          "Who are you? What's this hell you put me through?",
+          "Another voice, another name - I can't bear to see",
+          "the face",
+          "I'm doing fine - just trying my best to stay in",
+          "line",
+          "I'll excuse the pleasantries but every exchange",
+          "always seems to stay the same",
+          "",
+          "Hold my breath",
+          "Maybe I'm better off dead"
+        ]
+      }
+    },
+    "psyouredead": {
+      ".": {
+        "type": "link",
+        "value": "/split/psyouredead"
+      },
+      "..": {
+        "type": "link",
+        "value": "/split"
+      },
+      "psyouredead.wav": {
+        "type": "drive",
+        "value": "https://drive.google.com/file/d/1MEo2jhP37A38THvZ916_OCGT21BS4LvE/view?usp=sharing"
+      },
+      "babys_first_pyramid_scheme.txt": {
+        "type": "text",
+        "value": [
+          "Painting still life frames with my insides",
+          "Holding a light to the dark that ate me",
+          "Now there's no way, I swear that I'm not",
+          "Cut out for the job of holding this up",
+          "",
+          "Plastered to the canvas I stay exposed for",
+          "patron eyes",
+          "Still tied up with the parasite that knows it",
+          "needs me alive",
+          "",
+          "If I was still the judge I'd sentence every",
+          "shiver in my spine to death with collections of",
+          "the evidence that they had left",
+          "",
+          "Afraid for their lives",
+          "I hope they just hide",
+          "",
+          "Float up till your heart stops",
+          "Just don't be alarmed when you sink back",
+          "",
+          "It means nothing",
+          "It means nothing" 
+        ]
+      },
+      "i_never_shouldve_joined_the_occult_club.txt": {
+        "type": "text",
+        "value": [
+          "\"You did that on purpose\" his ghost sang to",
+          "me",
+          "After he took his life",
+          "I'm sorry that it had to come to this,",
+          "I thought it better",
+          "Curse cast through my body",
+          "Now I'll never be free",
+          "",
+          "I'll watch my whole life through phantom",
+          "eyes",
+          "",
+          "You thought it out, veiled with doubt",
+          "But needed your answer",
+          "",
+          "Well I'm not here, I'm not me anymore",
+          "I closed that chapter but I'm still",
+          "reminded",
+          "Of how it felt when the hammer grew heavy",
+          "Of how I died when my innocence left me",
+          "",
+          "I did it on purpose"
+        ]
+      }
+    }
+  },
+  "logs": {
+    ".": {
+      "type": "link",
+      "value": "/logs"
+    },
+    "..": {
+      "type": "link",
+      "value": "/"
+    }
+  }
+}

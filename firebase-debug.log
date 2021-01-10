@@ -1,0 +1,13 @@
+[debug] [2021-01-10T20:50:10.294Z] ----------------------------------------------------------------------
+[debug] [2021-01-10T20:50:10.296Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lewic\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-01-10T20:50:10.296Z] CLI Version:   8.20.0
+[debug] [2021-01-10T20:50:10.296Z] Platform:      win32
+[debug] [2021-01-10T20:50:10.296Z] Node Version:  v14.15.1
+[debug] [2021-01-10T20:50:10.296Z] Time:          Sun Jan 10 2021 21:50:10 GMT+0100 (Central European Standard Time)
+[debug] [2021-01-10T20:50:10.297Z] ----------------------------------------------------------------------
+[debug] [2021-01-10T20:50:10.297Z] 
+[debug] [2021-01-10T20:50:10.304Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-10T20:50:10.304Z] > authorizing via signed-in user
+[debug] [2021-01-10T20:50:10.305Z] [iam] checking project music-arg-3eb34 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-01-10T20:50:10.307Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/music-arg-3eb34:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           this.lerpText();
         }, 400);
       } else {
-        this.router.navigate(['/files']);
+        this.router.navigate(['/files/split']);
       }
     });
   }

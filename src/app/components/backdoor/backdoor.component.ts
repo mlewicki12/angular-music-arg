@@ -31,8 +31,10 @@ export class BackdoorComponent implements OnInit {
               private router: Router,
               private challenges: ChallengesService,
               private route: ActivatedRoute) { 
-    this.challengeIndex = +(this.route.snapshot.paramMap.get('id') || 0);
-    this.loadChallenge(this.challengeIndex);
+    this.route.params.subscribe(params => {
+      this.challengeIndex = +params['id'];
+      this.loadChallenge(this.challengeIndex);
+    });
   }
 
   loadChallenge(index: number) {
@@ -94,7 +96,7 @@ export class BackdoorComponent implements OnInit {
   // TODO: make challenge type
   redirect() {
     if(typeof this.challenge.redirect === 'number') {
-      this.loadChallenge(this.challenge.redirect);
+      this.router.navigate([`/backdoor/${this.challenge.redirect}`])
     } else {
       this.router.navigate(this.challenge.redirect);
     }

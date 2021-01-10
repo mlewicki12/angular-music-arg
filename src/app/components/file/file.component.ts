@@ -32,8 +32,8 @@ export class FileComponent implements OnInit {
     this.directory = false;
     this.active = 0;
     this.upLink = '';
+    this.path = ''; // fuck you typescript
 
-    this.path = this.route.snapshot.paramMap.get('path') || '';
     this.route.params.subscribe(params => {
       this.path = params['path'];
 
@@ -101,14 +101,11 @@ export class FileComponent implements OnInit {
     this.binding.registerEvent('Enter', () => {
       this.path = `${this.dir[this.paths[this.active]].type === 'link' ? this.dir[this.paths[this.active]].value : `${this.path}/${this.paths[this.active]}`}`;
       this.router.navigate([`/files/${this.path}`]);
-
-      this.getAction(this.dir[this.paths[this.active]]);
     });
 
     this.binding.registerEvent('Escape', () => {
       this.path = this.upLink;
       this.router.navigate([`/files/${this.path}`]);
-      this.getAction(this.file.getFile(this.path));
     });
   }
 

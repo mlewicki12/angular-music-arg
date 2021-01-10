@@ -47,3 +47,6 @@ Thumbs.db
 
 # login info
 src/login.json
+
+# firebase
+.firebase

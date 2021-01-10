@@ -1,4 +1,10 @@
 
+@import '~src/sass/abstract/_variables';
+
 p {
   white-space: pre-wrap;
+}
+
+a, a:active {
+  color: $app-secondary;
 }

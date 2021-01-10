@@ -77,7 +77,7 @@ export class BackdoorComponent implements OnInit {
           this.loading = true;
           this.timer.loadingText(this.failText, 3000, (text: string, last: boolean) => {
             if(last) {
-              this.redirect();
+              this.router.navigate(['/login']);
             }
 
             this.displayText = text;

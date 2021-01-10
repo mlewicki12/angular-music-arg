@@ -1,1 +1,7 @@
-<p>{{displayText}}</p>
+<p *ngIf="!directory">{{displayText}}</p>
+<div class="dir" *ngIf="directory">
+  <p>/{{path}}</p>
+  <a *ngFor="let path of paths">
+    {{paths[active] === path ? '> ' : ''}} {{path}}
+  </a>
+</div>

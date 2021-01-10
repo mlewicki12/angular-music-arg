@@ -1,4 +1,17 @@
 
+@import '~src/sass/abstract/_mixins';
+
 p {
   white-space: pre-wrap;
+}
+
+.dir {
+  @include flex-column;
+  justify-content: flex-start;
+
+  padding: 0.5rem;
+}
+
+.dir > a {
+  margin: 0.25rem;
 }

@@ -7,28 +7,26 @@
   "split": {
     ".": {
       "type": "link",
-      "value": "/split"
-    },
-    "..": {
-      "type": "link",
-      "value": "/"
+      "value": "split"
     },
     "mikau": {
       ".": {
         "type": "link",
-        "value": "/split/mikau"
+        "value": "split/mikau"
       },
       "..": {
         "type": "link",
-        "value": "/split"
+        "value": "split"
       },
       "mikau.wav": {
         "type": "drive",
         "value": "https://drive.google.com/file/d/17ICZKeINkC1sJhIMs5UIEi_ZSwOTJuG_/view?usp=sharing"
       },
-      "at_the_edge_of_fading_cosciousness.txt": {
+      "fading_consciousness.txt": {
         "type": "text",
         "value": [
+          "1. At the Edge of Fading Consciousness",
+          "",
           "Who's that hanging off your back?",
           "Who's that singing in the breeze?",
           "A smile in a shadow",
@@ -56,6 +54,8 @@
       "dos_ex_machina.txt": {
         "type": "text",
         "value": [
+          "2. DOS Ex Machina",
+          "",
           "I lied, things aren't better off this time",
           "Just keeps getting worse no matter how many times",
           "I try",
@@ -101,19 +101,21 @@
     "psyouredead": {
       ".": {
         "type": "link",
-        "value": "/split/psyouredead"
+        "value": "split/psyouredead"
       },
       "..": {
         "type": "link",
-        "value": "/split"
+        "value": "split"
       },
       "psyouredead.wav": {
         "type": "drive",
         "value": "https://drive.google.com/file/d/1MEo2jhP37A38THvZ916_OCGT21BS4LvE/view?usp=sharing"
       },
-      "babys_first_pyramid_scheme.txt": {
+      "pyramid_scheme.txt": {
         "type": "text",
         "value": [
+          "3. Baby's First Pyramid Scheme",
+          "",
           "Painting still life frames with my insides",
           "Holding a light to the dark that ate me",
           "Now there's no way, I swear that I'm not",
@@ -138,9 +140,11 @@
           "It means nothing" 
         ]
       },
-      "i_never_shouldve_joined_the_occult_club.txt": {
+      "occult_club.txt": {
         "type": "text",
         "value": [
+          "4. I Never Should've Joined the Occult Club",
+          "",
           "\"You did that on purpose\" his ghost sang to",
           "me",
           "After he took his life",
@@ -169,11 +173,11 @@
   "logs": {
     ".": {
       "type": "link",
-      "value": "/logs"
+      "value": "logs"
     },
     "..": {
       "type": "link",
-      "value": "/"
+      "value": ""
     }
   }
 }

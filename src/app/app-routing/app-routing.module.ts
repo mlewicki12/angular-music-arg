@@ -32,13 +32,13 @@ function filepathMatcher(segments: UrlSegment[],
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'hack', component: TransitionComponent},
   {path: 'backdoor/:id', component: BackdoorComponent},
   {path: 'error', component: ErrorComponent},
   {path: 'log/:id', component: LogComponent},
   {matcher: filepathMatcher, component: FileComponent},
   {path: '**', component: PageNotFoundComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({

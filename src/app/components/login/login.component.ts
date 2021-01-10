@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.bindingService.registerEvent('Enter', () => {
       this.attemptMade = true;
-      this.loggedIn = this.loginService.verify(this.login, this.password);
+      this.loggedIn = this.loginService.verify(this.login.toLowerCase(), this.password.toLowerCase());
       this.login = this.password = "";
 
       if(!this.loggedIn) {

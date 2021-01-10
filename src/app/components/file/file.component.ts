@@ -12,6 +12,8 @@ import { FileService } from 'src/app/services/file.service';
 export class FileComponent implements OnInit {
   path: string;
   displayText: string | any[];
+  displayLink: boolean;
+  upLink: string;
 
   paths: string[];
   dir: any;
@@ -23,26 +25,37 @@ export class FileComponent implements OnInit {
               private binding: BindingService,
               private router: Router) {
     this.displayText = ''; // bc apparently typescript isn't picking up on switch default
+    this.displayLink = false;
     this.paths = ['gay']; // dummy element in paths so it doesn't break on division by zero in ArrowDown event
 
     // i need this here because fuck typescript
     this.directory = false;
     this.active = 0;
+    this.upLink = '';
 
     this.path = this.route.snapshot.paramMap.get('path') || '';
-    var toDisplay = this.file.getFile(this.path);
-    this.getAction(toDisplay);
+    this.route.params.subscribe(params => {
+      this.path = params['path'];
+
+      let temp = this.path.split('/');
+      temp.pop();
+      this.upLink = temp.join('/');
+
+      var toDisplay = this.file.getFile(this.path);
+      this.getAction(toDisplay);
+    });
   }
 
   getAction(path: any) {
     // reset values
     this.directory = false;
+    this.displayLink = false;
     this.active = 0;
 
     switch(path.type) {
       case 'text':
         this.displayText = path.value.join('\n');
-        this.displayText += '\n\n- Press ESC to close file';
+        this.displayLink = true;
         break;
 
       case 'link':
@@ -93,10 +106,7 @@ export class FileComponent implements OnInit {
     });
 
     this.binding.registerEvent('Escape', () => {
-      let split = this.path.split('/');
-      split.pop();
-
-      this.path = split.join('/');
+      this.path = this.upLink;
       this.router.navigate([`/files/${this.path}`]);
       this.getAction(this.file.getFile(this.path));
     });

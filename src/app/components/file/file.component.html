@@ -1,7 +1,8 @@
 <p *ngIf="!directory">{{displayText}}</p>
+<a *ngIf="displayLink" routerLink="..">- Press ESC to close file</a>
 <div class="dir" *ngIf="directory">
   <p>/{{path}}</p>
-  <a *ngFor="let path of paths">
-    {{paths[active] === path ? '> ' : ''}} {{path}}
+  <a *ngFor="let link of paths" routerLink="{{link}}">
+    {{paths[active] === link ? '> ' : ''}} {{link}}
   </a>
 </div>

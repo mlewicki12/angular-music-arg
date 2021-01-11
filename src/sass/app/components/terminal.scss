@@ -9,7 +9,7 @@
   margin: 1rem;
   padding: 0.5rem;
 
-  height: 90vh;
+  height: 95vh;
 
   font-family: $app-font;
   font-size: large;
@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
 
-  overflow: hidden;
+  overflow: auto;
 }
 
 .options * {

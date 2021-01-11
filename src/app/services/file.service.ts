@@ -46,7 +46,7 @@ export class FileService {
     }
 
     const length = 25; // generate total length
-    const infoPos = Math.floor(Math.random() * 23) + 1; // generate password position
+    const infoPos = Math.floor(Math.random() * 17) + 6; // generate password position
     const infoString = `username: ${this.userInfo.login}, password: ${this.userInfo.password}`;
 
     var ret = '';

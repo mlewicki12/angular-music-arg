@@ -37,6 +37,7 @@ export class FileComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.path = params['path'];
 
+      // get the previous path
       let temp = this.path.split('/');
       temp.pop();
       this.upLink = temp.join('/');
@@ -70,6 +71,7 @@ export class FileComponent implements OnInit {
         link.href = path.value;
         link.setAttribute('visibility', 'hidden');
         link.click();
+        this.router.navigate([`files/${this.upLink}`]);
         break;
 
       case 'error':

@@ -20,30 +20,43 @@ export class LoginComponent implements OnInit {
   displayPromptText: boolean = false;
   interval: any;
 
+  loadingText: string = "Logging in";
+
   attemptMade: boolean = false;
   loggedIn: boolean = false;
+  loggingIn: boolean = false;
 
   constructor(private bindingService: BindingService,
               private loginService: LoginService,
               private fileService: FileService,
+              private timerService: TimerService,
               private router: Router) {
                 this.fileService.setLogTime(new Date());
               }
 
   ngOnInit(): void {
-    this.bindingService.registerEvent('Enter', () => {
-      this.attemptMade = true;
-      this.loggedIn = this.loginService.verify(this.login.toLowerCase(), this.password.toLowerCase());
-      this.login = this.password = "";
+    this.bindingService.registerEvent('Enter', () => this.processLogin());
+  }
 
-      if(!this.loggedIn) {
-        setTimeout(() => {
-          this.lerpText();
-        }, 400);
-      } else {
-        this.router.navigate(['/files/split']);
-      }
-    });
+  processLogin() {
+    this.attemptMade = true;
+    this.loggedIn = this.loginService.verify(this.login.toLowerCase(), this.password.toLowerCase());
+    this.login = this.password = "";
+
+    if(!this.loggedIn) {
+      setTimeout(() => {
+        this.lerpText();
+      }, 400);
+    } else {
+      this.loggingIn = true;
+      this.timerService.loadingText(this.loadingText, 3000, (text: string, last: boolean) => {
+        if(last) {
+          this.router.navigate(['/files/split']);
+        }
+
+        this.loadingText = text;
+      });
+    }
   }
 
   lerpText(): void {

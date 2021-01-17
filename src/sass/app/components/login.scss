@@ -34,6 +34,13 @@ input {
   margin-left: 0.5rem;
 }
 
+a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: $app-secondary;
+  margin-top: 1rem;
+}
+
 .hide {
   color: $app-main;
 }

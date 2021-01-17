@@ -1,19 +1,7 @@
 
 {
-  ".": {
-    "type": "link",
-    "value": "/"
-  },
   "split": {
-    ".": {
-      "type": "link",
-      "value": "split"
-    },
     "mikau": {
-      ".": {
-        "type": "link",
-        "value": "split/mikau"
-      },
       "..": {
         "type": "link",
         "value": "split"
@@ -99,10 +87,6 @@
       }
     },
     "psyouredead": {
-      ".": {
-        "type": "link",
-        "value": "split/psyouredead"
-      },
       "..": {
         "type": "link",
         "value": "split"
@@ -171,10 +155,6 @@
     }
   },
   "logs": {
-    ".": {
-      "type": "link",
-      "value": "logs"
-    },
     "..": {
       "type": "link",
       "value": ""

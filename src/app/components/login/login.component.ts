@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    this.bindingService.registerEvent('Enter', () => this.processLogin());
+    this.bindingService.registerEvent('LoginEnter', 'Enter', () => this.processLogin());
+  }
+
+  ngOnDestroy(): void {
+    this.bindingService.endEvent('LoginEnter', 'Enter');
   }
 
   processLogin() {

@@ -89,26 +89,30 @@ export class FileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.binding.registerEvent('ArrowUp', () => {
+    this.binding.registerEvent('FileUp', 'ArrowUp', () => {
       this.active -= 1;
       if(this.active < 0) {
         this.active = this.paths.length - 1;
       }
     });
 
-    this.binding.registerEvent('ArrowDown', () => {
+    this.binding.registerEvent('FileDown', 'ArrowDown', () => {
       this.active = (this.active + 1) % this.paths.length;
     });
 
-    this.binding.registerEvent('Enter', () => {
+    this.binding.registerEvent('FileEnter', 'Enter', () => {
       this.path = `${this.dir[this.paths[this.active]].type === 'link' ? this.dir[this.paths[this.active]].value : `${this.path}/${this.paths[this.active]}`}`;
       this.router.navigate([`/files/${this.path}`]);
     });
 
-    this.binding.registerEvent('Escape', () => {
+    this.binding.registerEvent('FileExit', 'Escape', () => {
       this.path = this.upLink;
       this.router.navigate([`/files/${this.path}`]);
     });
+  }
+
+  ngOnDestroy() : void {
+    this.binding.endEvents(['FileUp', 'FileDown', 'FileEnter', 'FileExit'], ['ArrowUp', 'ArrowDown', 'Enter', 'Escape']);
   }
 
 }

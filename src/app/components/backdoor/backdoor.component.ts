@@ -54,7 +54,7 @@ export class BackdoorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.binding.registerEvent('Enter', () => {
+    this.binding.registerEvent('BackdoorNext', 'Enter', () => {
       if(this.answer.trim() === this.challenge.answer) {
         this.displayClass = 'success';
         this.disabled = true;
@@ -91,6 +91,10 @@ export class BackdoorComponent implements OnInit {
 
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.binding.endEvent('BackdoorNext', 'Enter');
   }
 
   // TODO: make challenge type

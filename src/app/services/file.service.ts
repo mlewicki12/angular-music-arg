@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import filePath from '../../assets/system.json';
+import userInfo from '../../assets/login.json';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +37,6 @@ export class FileService {
     return this.logFileName;
   }
 
-  private userInfo = {
-    login: 'razorxblade',
-    password: 'dosexmachina'
-  }
   generateLogFile() {
     if(!this.logStartTime) {
       this.logStartTime = new Date();
@@ -47,7 +44,7 @@ export class FileService {
 
     const length = 25; // generate total length
     const infoPos = Math.floor(Math.random() * 17) + 6; // generate password position
-    const infoString = `username: ${this.userInfo.login}, password: ${this.userInfo.password}`;
+    const infoString = `username: ${userInfo.login}, password: ${userInfo.password}`;
 
     var ret = '';
     for(let i = 0; i < length; ++i) {
